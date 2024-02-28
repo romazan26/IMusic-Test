@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 struct TrackModel {
     var trackName: String
@@ -48,6 +49,15 @@ class SearchViewController: UITableViewController {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        let url =  URL(string: "https://itunes.apple.com/search?term=\(searchText)")!
+        AF.request(url).response { dataRespon in
+            if let error = dataRespon.error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            guard let data = dataRespon.data else {return}
+            let someString = String(data: data, encoding: .utf8)
+            print(someString ?? "")
+        }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150E818CF9EE5004D5D985CE /* Pods_IMusic_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB6142FCEDFBD4C36EC448D /* Pods_IMusic_Test.framework */; };
 		30957B952B8F2F9A00C95828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30957B942B8F2F9A00C95828 /* AppDelegate.swift */; };
 		30957B972B8F2F9A00C95828 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30957B962B8F2F9A00C95828 /* SceneDelegate.swift */; };
 		30957B992B8F2F9A00C95828 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30957B982B8F2F9A00C95828 /* ViewController.swift */; };
@@ -28,6 +29,9 @@
 		30957BA22B8F2F9B00C95828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30957BA82B8F47E800C95828 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		30957BAB2B8F4A0300C95828 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		643608B0B5AECE66CBFC3727 /* Pods-IMusic Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMusic Test.debug.xcconfig"; path = "Target Support Files/Pods-IMusic Test/Pods-IMusic Test.debug.xcconfig"; sourceTree = "<group>"; };
+		8DB6142FCEDFBD4C36EC448D /* Pods_IMusic_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IMusic_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E529740C6B24E61EEABD0119 /* Pods-IMusic Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMusic Test.release.xcconfig"; path = "Target Support Files/Pods-IMusic Test/Pods-IMusic Test.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +39,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				150E818CF9EE5004D5D985CE /* Pods_IMusic_Test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E01EABF3B4E74892F31D5E5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				643608B0B5AECE66CBFC3727 /* Pods-IMusic Test.debug.xcconfig */,
+				E529740C6B24E61EEABD0119 /* Pods-IMusic Test.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		30957B882B8F2F9A00C95828 = {
 			isa = PBXGroup;
 			children = (
 				30957B932B8F2F9A00C95828 /* IMusic Test */,
 				30957B922B8F2F9A00C95828 /* Products */,
+				1E01EABF3B4E74892F31D5E5 /* Pods */,
+				9E1B887DB0435005FF2DEAAB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +89,14 @@
 			path = "IMusic Test";
 			sourceTree = "<group>";
 		};
+		9E1B887DB0435005FF2DEAAB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DB6142FCEDFBD4C36EC448D /* Pods_IMusic_Test.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30957BA52B8F2F9B00C95828 /* Build configuration list for PBXNativeTarget "IMusic Test" */;
 			buildPhases = (
+				06E3D09F133A90EBA33AD26A /* [CP] Check Pods Manifest.lock */,
 				30957B8D2B8F2F9A00C95828 /* Sources */,
 				30957B8E2B8F2F9A00C95828 /* Frameworks */,
 				30957B8F2B8F2F9A00C95828 /* Resources */,
+				5D7F371BED23B6E7A5379442 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -138,6 +164,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06E3D09F133A90EBA33AD26A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IMusic Test-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D7F371BED23B6E7A5379442 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IMusic Test/Pods-IMusic Test-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IMusic Test/Pods-IMusic Test-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IMusic Test/Pods-IMusic Test-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		30957B8D2B8F2F9A00C95828 /* Sources */ = {
@@ -211,7 +279,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -274,7 +342,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -295,6 +363,7 @@
 		};
 		30957BA62B8F2F9B00C95828 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 643608B0B5AECE66CBFC3727 /* Pods-IMusic Test.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -327,6 +396,7 @@
 		};
 		30957BA72B8F2F9B00C95828 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E529740C6B24E61EEABD0119 /* Pods-IMusic Test.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
