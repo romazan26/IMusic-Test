@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class SearchViewController: UITableViewController {
+class SearchMusicViewController: UITableViewController {
     
     private var timer: Timer?
     let searchController = UISearchController(searchResultsController: nil)
@@ -44,7 +44,7 @@ class SearchViewController: UITableViewController {
     }
 }
 
-extension SearchViewController: UISearchBarDelegate {
+extension SearchMusicViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         timer?.invalidate()
