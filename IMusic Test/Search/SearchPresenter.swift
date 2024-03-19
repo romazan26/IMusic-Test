@@ -16,7 +16,14 @@ class SearchPresenter: SearchPresentationLogic {
   weak var viewController: SearchDisplayLogic?
   
   func presentData(response: Search.Model.Response.ResponseType) {
-  
+      switch response {
+          
+      case .some:
+          print("presentor .some")
+      case .presentTracks:
+          print("presentor .presentTracks")
+          viewController?.displayData(viewModel: Search.Model.ViewModel.ViewModelData.displayTracks)
+      }
   }
   
 }
