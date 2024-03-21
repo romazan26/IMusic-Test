@@ -7,5 +7,5 @@ target 'IMusic Test' do
 
   # Pods for IMusic Test
 pod 'Alamofire'
-
+pod 'SDWebImage', '~> 5.0'
 end
