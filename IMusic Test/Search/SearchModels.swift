@@ -9,28 +9,27 @@
 import UIKit
 
 enum Search {
-   
-  enum Model {
-    struct Request {
-      enum RequestType {
-        case some
-          case getTracks(searchTerm: String)
-      }
+    
+    enum Model {
+        struct Request {
+            enum RequestType {
+                case getTracks(searchTerm: String)
+            }
+        }
+        struct Response {
+            enum ResponseType {
+                case presentTracks(searchRespons: SearchRespone?)
+                case presentFooterView
+            }
+        }
+        struct ViewModel {
+            enum ViewModelData {
+                case displayTracks(searchViewModel: SearchViewModel)
+                case displayFooterView
+            }
+        }
     }
-    struct Response {
-      enum ResponseType {
-        case some
-          case presentTracks(searchRespons: SearchRespone?)
-      }
-    }
-    struct ViewModel {
-      enum ViewModelData {
-        case some
-          case displayTracks(searchViewModel: SearchViewModel)
-      }
-    }
-  }
-  
+    
 }
 
 struct SearchViewModel {
