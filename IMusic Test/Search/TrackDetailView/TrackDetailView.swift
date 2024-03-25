@@ -11,6 +11,7 @@ import AVKit
 
 final class TrackDetailView: UIView {
     
+    //MARK: - @IBOutlet
     @IBOutlet weak var trackImageView: UIImageView!
     @IBOutlet weak var currentTimeSlider: UISlider!
     @IBOutlet weak var currentTimeLabel: UILabel!
@@ -26,13 +27,17 @@ final class TrackDetailView: UIView {
         return avPlayer
     }()
     
+    //MARK: - awakeFromNib
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        let scale: CGFloat = 0.8
+        trackImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
+        trackImageView.layer.cornerRadius = 5
         trackImageView.backgroundColor = .red
     }
   
-  //MARK: - Set
+  //MARK: - Setup
     func set(viewModel: SearchViewModel.Cell){
         trackTitleLabel.text = viewModel.trackName
         authortitleLabel.text = viewModel.artistName
@@ -40,10 +45,10 @@ final class TrackDetailView: UIView {
         let string600 = viewModel.iconUrlString?.replacingOccurrences(of: "100x100", with: "600x600")
         guard let url = URL(string: string600 ?? "") else {return}
         trackImageView.sd_setImage(with: url)
+        monitorStartTime()
         
     }
     
-    //MARK: - playTrack
     private func playTrack(previewUrl: String?){
         guard let url = URL(string: previewUrl ?? "") else {return}
         let playerItem = AVPlayerItem(url: url)
@@ -52,6 +57,31 @@ final class TrackDetailView: UIView {
         player.play()
     }
     
+    //MARK: - TimeSetup
+    private func monitorStartTime(){
+        
+        let time = CMTimeMake(value: 1, timescale: 3)
+        let times = [NSValue(time: time)]
+        player.addBoundaryTimeObserver(forTimes: times, queue: .main) { [weak self] in
+            self?.enlargeTrackImageView()
+        }
+    }
+    
+    //MARK: - Animations
+    private func enlargeTrackImageView(){
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut) {
+            self.trackImageView.transform = .identity
+        } completion: { _ in}
+    }
+    
+    private func reduceTrackImageView(){
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut) {
+            let scale: CGFloat = 0.8
+            self.trackImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
+        } completion: { _ in}
+    }
+    
+    //MARK: - @IBAction
     @IBAction func dragDownButtonTapped(_ sender: Any) {
         self.removeFromSuperview()
         
@@ -74,9 +104,11 @@ final class TrackDetailView: UIView {
         if player.timeControlStatus == .paused{
             player.play()
             playPauseButton.setImage(.pause, for: .normal)
+            enlargeTrackImageView()
         } else {
             player.pause()
             playPauseButton.setImage(.play, for: .normal)
+            reduceTrackImageView()
         }
         
     }
