@@ -151,7 +151,7 @@
                 <outlet property="authortitleLabel" destination="9Qt-HD-JRR" id="ecI-k0-8Sr"/>
                 <outlet property="currentTimeLabel" destination="orG-yI-wfV" id="52j-zf-967"/>
                 <outlet property="currentTimeSlider" destination="RQK-xi-ajP" id="M7U-a1-yjR"/>
-                <outlet property="durationTimeLabel" destination="mIP-Nx-7nh" id="x8j-mF-jQc"/>
+                <outlet property="durationTimeLabel" destination="e8O-fI-oP2" id="Hsm-Gl-Akp"/>
                 <outlet property="playPauseButton" destination="FOF-jf-ecP" id="Kz6-ed-ux9"/>
                 <outlet property="trackImageView" destination="mIP-Nx-7nh" id="9EJ-VV-mOW"/>
                 <outlet property="trackTitleLabel" destination="1aP-Ky-zgp" id="J7P-xl-yxM"/>

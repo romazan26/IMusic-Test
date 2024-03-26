@@ -14,6 +14,7 @@
 		301465272BA8CD5A00A13E4C /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301465202BA8CD5A00A13E4C /* SearchModels.swift */; };
 		301465282BA8CD5A00A13E4C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301465212BA8CD5A00A13E4C /* SearchViewController.swift */; };
 		301465292BA8CD5A00A13E4C /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301465222BA8CD5A00A13E4C /* SearchInteractor.swift */; };
+		306C16182BB350A9000474FC /* CMTime + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306C16172BB350A9000474FC /* CMTime + Extension.swift */; };
 		3079A7A92BADCA6A003EF20F /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3079A7A82BADCA6A003EF20F /* TrackDetailView.xib */; };
 		3079A7AB2BADCA7A003EF20F /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3079A7AA2BADCA7A003EF20F /* TrackDetailView.swift */; };
 		30957B952B8F2F9A00C95828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30957B942B8F2F9A00C95828 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		301465202BA8CD5A00A13E4C /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
 		301465212BA8CD5A00A13E4C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		301465222BA8CD5A00A13E4C /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		306C16172BB350A9000474FC /* CMTime + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + Extension.swift"; sourceTree = "<group>"; };
 		3079A7A82BADCA6A003EF20F /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
 		3079A7AA2BADCA7A003EF20F /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 		30957B912B8F2F9A00C95828 /* IMusic Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IMusic Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				30D4EB7D2BAA155D005F4C5F /* UIViewController + StoryBoard.swift */,
+				306C16172BB350A9000474FC /* CMTime + Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				301465292BA8CD5A00A13E4C /* SearchInteractor.swift in Sources */,
 				30957BA92B8F47E800C95828 /* MainTabBarViewController.swift in Sources */,
 				30A9FDD52BACB09C008915CF /* FooterView.swift in Sources */,
+				306C16182BB350A9000474FC /* CMTime + Extension.swift in Sources */,
 				30A973B62BAC35F90038FB10 /* TrackCell.swift in Sources */,
 				30DB28862B91F57900D01721 /* NetWorkManager.swift in Sources */,
 				301465252BA8CD5A00A13E4C /* SearchWorker.swift in Sources */,

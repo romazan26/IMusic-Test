@@ -15,7 +15,8 @@ final class TrackDetailView: UIView {
     @IBOutlet weak var trackImageView: UIImageView!
     @IBOutlet weak var currentTimeSlider: UISlider!
     @IBOutlet weak var currentTimeLabel: UILabel!
-    @IBOutlet weak var durationTimeLabel: UIImageView!
+
+    @IBOutlet weak var durationTimeLabel: UILabel!
     @IBOutlet weak var trackTitleLabel: UILabel!
     @IBOutlet weak var authortitleLabel: UILabel!
     @IBOutlet weak var playPauseButton: UIButton!
@@ -46,6 +47,7 @@ final class TrackDetailView: UIView {
         guard let url = URL(string: string600 ?? "") else {return}
         trackImageView.sd_setImage(with: url)
         monitorStartTime()
+        observePlayerCurrentTime()
         
     }
     
@@ -64,6 +66,17 @@ final class TrackDetailView: UIView {
         let times = [NSValue(time: time)]
         player.addBoundaryTimeObserver(forTimes: times, queue: .main) { [weak self] in
             self?.enlargeTrackImageView()
+        }
+    }
+    
+    private func observePlayerCurrentTime(){
+        let interval = CMTimeMake(value: 1, timescale: 2)
+        player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] (time) in
+            self?.currentTimeLabel.text = time.toDisplayString()
+
+            let durationTime = self?.player.currentItem?.duration
+            let currentDurationText = ((durationTime ?? CMTimeMake(value: 1, timescale: 1)) - time).toDisplayString()
+            self?.durationTimeLabel.text = "- \(currentDurationText)"
         }
     }
     
