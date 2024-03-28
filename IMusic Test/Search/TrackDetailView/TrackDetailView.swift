@@ -9,13 +9,17 @@ import UIKit
 import SDWebImage
 import AVKit
 
+protocol TrackMovingDelegate: AnyObject {
+    func moveBackForPreviusTrack() -> SearchViewModel.Cell?
+    func moveForwardForPreviusTrack() -> SearchViewModel.Cell?
+}
+
 final class TrackDetailView: UIView {
     
     //MARK: - @IBOutlet
     @IBOutlet weak var trackImageView: UIImageView!
     @IBOutlet weak var currentTimeSlider: UISlider!
     @IBOutlet weak var currentTimeLabel: UILabel!
-
     @IBOutlet weak var durationTimeLabel: UILabel!
     @IBOutlet weak var trackTitleLabel: UILabel!
     @IBOutlet weak var authortitleLabel: UILabel!
@@ -28,26 +32,32 @@ final class TrackDetailView: UIView {
         return avPlayer
     }()
     
+    weak var delegate: TrackMovingDelegate?
+    
     //MARK: - awakeFromNib
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         let scale: CGFloat = 0.8
+        
         trackImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
         trackImageView.layer.cornerRadius = 5
         trackImageView.backgroundColor = .red
     }
   
   //MARK: - Setup
+    
     func set(viewModel: SearchViewModel.Cell){
         trackTitleLabel.text = viewModel.trackName
         authortitleLabel.text = viewModel.artistName
         playTrack(previewUrl: viewModel.previewUrl)
+        monitorStartTime()
+        observePlayerCurrentTime()
         let string600 = viewModel.iconUrlString?.replacingOccurrences(of: "100x100", with: "600x600")
         guard let url = URL(string: string600 ?? "") else {return}
         trackImageView.sd_setImage(with: url)
-        monitorStartTime()
-        observePlayerCurrentTime()
+        
         
     }
     
@@ -125,12 +135,17 @@ final class TrackDetailView: UIView {
     }
     
     @IBAction func previousTrack(_ sender: Any) {
+        let cellViewModel = delegate?.moveBackForPreviusTrack()
+        guard let cellInfo = cellViewModel  else { return }
+        self.set(viewModel: cellInfo)
     }
     
     @IBAction func nextTrack(_ sender: Any) {
+        let cellViewModel = delegate?.moveForwardForPreviusTrack()
+        guard let cellInfo = cellViewModel  else { return }
+        self.set(viewModel: cellInfo)
     }
     
-    //MARK: - playPauseAction
     @IBAction func playPauseAction(_ sender: Any) {
         if player.timeControlStatus == .paused{
             player.play()
